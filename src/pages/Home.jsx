@@ -17,33 +17,44 @@ export default function Home() {
 
     return (
         <>
-            <div className="container">
-                <h1>Welcome to my homepage!</h1>
-                <h2>Movies</h2>
-                <div className="movies_list">
-                    <div className="row">
-                        {
-                            movies.length > 0 ? (
-
-                                movies.map(movie => (
-                                    <div className="col" key={`Movie - ${movie.id}`}>
-                                        <div className="card">
-                                            <img src={movie.image} alt={movie.title} className="card-img-top" />
-                                            <div className="card-body">
-                                                <h3>{movie.title}</h3>
-                                                <p>{movie.director}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-
-                            ) : (
-                                <h4>No movies available</h4>
-                            )
-                        }
-                    </div>
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">Discover, Review, and Share Your Favorite Films</h1>
+                    <p class="col-md-8 fs-5">
+                        Join a community of movie lovers. Rate films, write reviews, and find your next cinematic obsession. Write reviews, rate films, and see what others are saying. Let your voice be heard! Share your thoughts and shape the way people see movies.
+                    </p>
                 </div>
             </div>
+
+
+            <section className="movies my-5">
+                <div className="container">
+                    <div className="movies_list">
+                        <div className="row">
+                            {
+                                movies.length > 0 ? (
+
+                                    movies.map(movie => (
+                                        <div className="col" key={`Movie - ${movie.id}`}>
+                                            <div className="card h-100">
+                                                <img src={movie.image} alt={movie.title} className="card-img-top" />
+                                                <div className="card-body">
+                                                    <h3>{movie.title}</h3>
+                                                    <p>{movie.director}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+
+                                ) : (
+                                    <h4>No movies available</h4>
+                                )
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
 
         </>
