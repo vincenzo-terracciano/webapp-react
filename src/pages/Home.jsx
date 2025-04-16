@@ -17,10 +17,10 @@ export default function Home() {
 
     return (
         <>
-            <div class="p-5 mb-4 bg-light rounded-3">
-                <div class="container-fluid py-5">
-                    <h1 class="display-5 fw-bold">Discover, Review, and Share Your Favorite Films</h1>
-                    <p class="col-md-8 fs-5">
+            <div className="p-5 mb-4 bg-light rounded-3">
+                <div className="container-fluid py-5">
+                    <h1 className="display-5 fw-bold">Discover, Review, and Share Your Favorite Films</h1>
+                    <p className="col-md-8 fs-5">
                         Join a community of movie lovers. Rate films, write reviews, and find your next cinematic obsession. Write reviews, rate films, and see what others are saying. Let your voice be heard! Share your thoughts and shape the way people see movies.
                     </p>
                 </div>
