@@ -18,6 +18,7 @@ export default function Home() {
 
     return (
         <>
+            {/* Jumbotron */}
             <div className="p-5 mb-4 bg-light rounded-3">
                 <div className="container-fluid py-5">
                     <h1 className="display-5 fw-bold">Discover, Review, and Share Your Favorite Films</h1>
@@ -28,6 +29,7 @@ export default function Home() {
             </div>
 
 
+            {/* Movies list */}
             <section className="movies my-5">
                 <div className="container">
                     <div className="movies_list">
