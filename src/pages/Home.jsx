@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom";
+import MovieCard from "../components/MovieCard";
 
 export default function Home() {
 
@@ -36,22 +36,9 @@ export default function Home() {
                         <div className="row">
                             {
                                 movies.length > 0 ? (
-
                                     movies.map(movie => (
-                                        <div className="col" key={`Movie - ${movie.id}`}>
-                                            <div className="card h-100">
-                                                <Link to={`/movies/${movie.id}`}>
-                                                    <img src={`http://localhost:3000/${movie.image}`} alt={movie.title} className="card-img-top" />
-                                                </Link>
-
-                                                <div className="card-body">
-                                                    <h3>{movie.title}</h3>
-                                                    <p>{movie.director}</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <MovieCard key={movie.id} movie={movie} />
                                     ))
-
                                 ) : (
                                     <h4>No movies available</h4>
                                 )
