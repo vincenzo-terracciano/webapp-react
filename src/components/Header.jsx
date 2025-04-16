@@ -1,12 +1,14 @@
+import { NavLink } from "react-router-dom";
+
 export default function Header() {
 
     return (
         <header>
             <nav className="navbar navbar-expand navbar-light bg-light">
                 <div className="nav navbar-nav">
-                    <a className="nav-item nav-link active" href="#" aria-current="page">
+                    <NavLink className="nav-item nav-link" to="/">
                         Home
-                        <span className="visually-hidden">(current)</span></a>
+                    </NavLink>
                 </div>
             </nav>
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
@@ -37,7 +38,10 @@ export default function Home() {
                                     movies.map(movie => (
                                         <div className="col" key={`Movie - ${movie.id}`}>
                                             <div className="card h-100">
-                                                <img src={movie.image} alt={movie.title} className="card-img-top" />
+                                                <Link to={`/movies/${movie.id}`}>
+                                                    <img src={`http://localhost:3000/${movie.image}`} alt={movie.title} className="card-img-top" />
+                                                </Link>
+
                                                 <div className="card-body">
                                                     <h3>{movie.title}</h3>
                                                     <p>{movie.director}</p>
