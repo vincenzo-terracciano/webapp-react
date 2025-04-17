@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import MovieReviewCard from "../components/MovieReviewCard";
+import MovieReviewForm from "../components/MovieReviewForm";
 
 
 export default function SingleMovie() {
@@ -66,47 +67,8 @@ export default function SingleMovie() {
 
                     {/* Form */}
                     <div className="container">
-                        <div className="add-review">
-                            <h3>Add your review</h3>
 
-                            <form action="POST" className="mb-3">
-                                <div className="mb-3">
-                                    <label htmlFor="username" className="form-label">Username</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        name="username"
-                                        id="username"
-                                        placeholder="Type your username here"
-                                    />
-                                </div>
-
-                                <div className="mb-3">
-                                    <label htmlFor="rating" className="form-label">Rating</label>
-                                    <select className="form-select" id="rating" name="rating">
-                                        <option value="" disabled>Choose a rating</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-
-                                <div className="mb-3">
-                                    <label htmlFor="text" className="form-label">Your Review</label>
-                                    <textarea
-                                        className="form-control"
-                                        rows="3"
-                                        id="text"
-                                        name="text"
-                                        placeholder="Write your review here..."
-                                    ></textarea>
-                                </div>
-
-                                <button type="submit" className="btn btn-primary mt-2">Submit Review</button>
-                            </form>
-                        </div>
+                        <MovieReviewForm movieId={movie.id} />
 
                         <hr />
 
