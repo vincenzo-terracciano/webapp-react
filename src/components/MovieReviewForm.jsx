@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function MovieReviewForm({ movieId }) {
 
     const api_url = 'http://localhost:3000/api/v1/movies/' + movieId + '/review'
     console.log(movieId, 'movieId from MovieReviwForm');
     console.log(api_url, 'api_url from MovieReviewForm');
+    const navigate = useNavigate()
 
     const initialFormData = {
         name: '',
@@ -59,6 +61,10 @@ export default function MovieReviewForm({ movieId }) {
                 console.log('Form submitted successfully', data);
                 if (data?.message) {
                     setSuccess(data.message)
+                    setTimeout(() => {
+                        setSuccess(false)
+                        navigate(0)
+                    }, 2000)
                 }
             })
             .catch(err => {
