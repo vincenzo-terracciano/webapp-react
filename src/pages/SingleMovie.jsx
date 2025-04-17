@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import MovieReviewCard from "../components/MovieReviewCard";
 
 
@@ -9,12 +9,19 @@ export default function SingleMovie() {
     const [movie, setMovie] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
 
         fetch('http://localhost:3000/api/v1/movies/' + id)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+
+                if (data?.message) {
+                    navigate('/404')
+                }
+
                 setMovie(data)
                 setLoading(false);
             })
