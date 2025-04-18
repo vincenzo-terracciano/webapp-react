@@ -7,6 +7,9 @@ import GlobalContext from "./contexts/GlobalContext"
 import { useState } from "react"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
+import AuthLayout from "./layouts/AuthLayout"
+import Admin from "./pages/Admin"
+import CreateMovie from "./pages/CreateMovie"
 
 function App() {
 
@@ -24,6 +27,13 @@ function App() {
               <Route path="/register" Component={Register} />
               <Route path="/login" Component={Login} />
             </Route>
+
+            <Route Component={AuthLayout}>
+              <Route path="/admin" Component={Admin} />
+              <Route path="/admin/movies/create" Component={CreateMovie} />
+
+            </Route>
+
           </Routes>
         </BrowserRouter>
       </GlobalContext.Provider>

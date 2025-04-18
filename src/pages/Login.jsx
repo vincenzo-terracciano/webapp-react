@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+
+    const loginUrl = 'http://localhost:3000/login';
+
     const initialForm = {
         email: "",
         password: ""
@@ -12,6 +15,28 @@ export default function Login() {
     function handleSubmit(e) {
         e.preventDefault();
 
+        console.log('Form submitted', form);
+
+
+        fetch(loginUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(form)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('Login successful', data);
+
+            })
+            .catch(err => {
+                console.error('Login error', err);
+
+            })
+            .finally(() => {
+                setForm(initialForm)
+            })
     }
 
     return (

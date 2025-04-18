@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import GlobalContext from "../contexts/GlobalContext";
 
 export default function Register() {
+
+    const registrationUrl = 'http://localhost:3000/register';
 
     const initialForm = {
         username: "",
@@ -15,6 +18,28 @@ export default function Register() {
     function handleSubmit(e) {
         e.preventDefault();
 
+        console.log('Form submitted', form);
+
+
+        fetch(registrationUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(form)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('Registration successful', data);
+
+            })
+            .catch(err => {
+                console.error('Registration error', err);
+
+            })
+            .finally(() => {
+                setForm(initialForm)
+            })
     }
 
     return (
@@ -34,6 +59,7 @@ export default function Register() {
                                 placeholder="Type your username here"
                                 value={form.username}
                                 onChange={(e) => setForm({ ...form, username: e.target.value })}
+                                autoComplete="off"
                                 required
                             />
                         </div>
@@ -48,6 +74,7 @@ export default function Register() {
                                 placeholder="Type your email here"
                                 value={form.email}
                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
+                                autoComplete="off"
                                 required
                             />
                         </div>
