@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import MovieReviewCard from "../components/MovieReviewCard";
 import MovieReviewForm from "../components/MovieReviewForm";
 import GlobalContext from "../contexts/GlobalContext";
+import Loader from "../components/Loader";
 
 
 export default function SingleMovie() {
@@ -36,12 +37,7 @@ export default function SingleMovie() {
         <>
             {/* Loader */}
             {loading ? (
-                <div className="text-center my-5">
-                    <div className="spinner-border text-primary" role="status">
-                        <span className="visually-hidden">Loading movie...</span>
-                    </div>
-                    <p>Loading movie details...</p>
-                </div>
+                <Loader />
             ) : (
                 <>
                     {/* Jumbotron*/}

@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useContext } from "react";
 import GlobalContext from "../contexts/GlobalContext";
+import Loader from "../components/Loader";
 
 export default function DefaultLayout() {
 
@@ -15,11 +16,7 @@ export default function DefaultLayout() {
 
                 {
                     loading && (
-                        <div className="d-flex justify-content-center align-items-center vh-100">
-                            <div className="spinner-border text-primary" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
+                        <Loader />
                     )
                 }
 
