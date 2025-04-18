@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import MovieCard from "../components/MovieCard";
+import GlobalContext from "../contexts/GlobalContext";
 
 export default function Home() {
 
     const [movies, setMovies] = useState([]);
+    const { loading, setLoading } = useContext(GlobalContext)
 
     useEffect(() => {
 
@@ -12,8 +14,8 @@ export default function Home() {
             .then(data => {
                 console.log(data);
                 setMovies(data)
+                setLoading(false)
             })
-
     }, [])
 
     return (

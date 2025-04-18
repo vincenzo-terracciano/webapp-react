@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import MovieReviewCard from "../components/MovieReviewCard";
 import MovieReviewForm from "../components/MovieReviewForm";
+import GlobalContext from "../contexts/GlobalContext";
 
 
 export default function SingleMovie() {
 
     const { id } = useParams();
     const [movie, setMovie] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { loading, setLoading } = useContext(GlobalContext)
 
     const navigate = useNavigate();
 
@@ -54,12 +55,21 @@ export default function SingleMovie() {
                                     <p>{movie?.release_year}</p>
                                 </div>
                                 <div className="col-4">
-                                    <img
-                                        src={`http://localhost:3000/${movie.image}`}
-                                        alt={movie.title}
-                                        className="img-fluid"
-                                        style={{ height: '300px' }}
-                                    />
+                                    {movie?.image ? (
+                                        <img
+                                            src={`http://localhost:3000/${movie.image}`}
+                                            alt={movie.title}
+                                            className="img-fluid"
+                                            style={{ height: '300px' }}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={'https://source.unsplash.com/300x450/?cinema,film'}
+                                            alt={movie.title}
+                                            className="img-fluid"
+                                            style={{ height: '300px' }}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </div>
