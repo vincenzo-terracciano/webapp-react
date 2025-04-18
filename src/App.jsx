@@ -5,6 +5,8 @@ import SingleMovie from "./pages/SingleMovie"
 import NotFound from "./components/NotFound"
 import GlobalContext from "./contexts/GlobalContext"
 import { useState } from "react"
+import Register from "./pages/Register"
+import Login from "./pages/Login"
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
               <Route path="/" Component={Home} />
               <Route path="/movies/:id" Component={SingleMovie} />
               <Route path="/*" Component={NotFound} />
+              <Route path="/register" Component={Register} />
+              <Route path="/login" Component={Login} />
             </Route>
           </Routes>
         </BrowserRouter>
