@@ -21,9 +21,9 @@ export default function Home() {
     return (
         <>
             {/* Jumbotron */}
-            <div className="p-5 mb-4 bg-light rounded-3">
+            <div className="p-5 mb-4 jumbotron rounded-3">
                 <div className="container-fluid py-5">
-                    <h1 className="display-5 fw-bold">Discover, Review, and Share Your Favorite Films</h1>
+                    <h2 className="display-5 fw-bold">Discover, Review, and Share Your Favorite Films</h2>
                     <p className="col-md-8 fs-5">
                         Join a community of movie lovers. Rate films, write reviews, and find your next cinematic obsession. Write reviews, rate films, and see what others are saying. Let your voice be heard! Share your thoughts and shape the way people see movies.
                     </p>

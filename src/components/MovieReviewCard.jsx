@@ -21,7 +21,7 @@ export default function MovieReviewCard({ review }) {
     return (
         <>
             {/* Card's single movie */}
-            <div className="card mb-5" >
+            <div className="card my-4 review-card" >
                 <div className="card-header">
                     <div className="vote">{getStars(vote)}</div>
                 </div>

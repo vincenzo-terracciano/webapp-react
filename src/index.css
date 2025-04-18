@@ -1,12 +1,152 @@
 @import 'bootstrap';
 @import 'bootstrap-icons';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  color: white;
+}
+
+.custom-header {
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #333;
+
+  .nav-link {
+    color: white;
+    font-weight: 500;
+
+    &:hover {
+      color: #0abde3;
+    }
+  }
+
+  .nav-link.active {
+    color: #0abde3;
+    font-weight: 700;
+    margin-bottom: -10px;
+    border-bottom: 2px solid #0abde3;
+  }
+}
+
 main {
   min-height: calc(100vh - 56px);
+}
+
+.movies_list .card {
+  background-color: #1a1a1a;
+  border: none;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(10, 189, 227, 0.3);
+  }
 }
 
 .card-img-top {
   width: 100%;
   height: 320px;
   object-fit: cover;
+}
+
+h2,
+h3,
+h4 {
+  color: #0abde3;
+}
+
+.btn {
+  background-color: #0abde3;
+  border: none;
+
+  &:hover {
+    background-color: #099ec0;
+  }
+}
+
+.custom-footer {
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+}
+
+.logo {
+  font-weight: 700;
+  color: #0abde3;
+}
+
+a.nav-link {
+  color: #bbb;
+
+  &:hover {
+    color: #0abde3;
+  }
+}
+
+footer p {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.add-review {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+  h3 {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control,
+  .form-select {
+    background-color: #f1f1f1;
+  }
+
+  .form-label {
+    color: #bbb;
+  }
+}
+
+.review-card {
+  background-color: #121212;
+  border: 1px solid #1a1a1a;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+  .card-header,
+  .card-footer {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #2c2c2c;
+    border-top: 1px solid #2c2c2c;
+  }
+
+  .vote i {
+    color: gold;
+    margin-right: 3px;
+  }
+
+  .created-at {
+    font-size: 0.8rem;
+    color: #bbbbbb;
+  }
+}
+
+.jumbo-movie .display-5 {
+  color: #0abde3;
+  font-weight: 700;
+}
+
+hr {
+  border-top: 1px solid #3b3b3b;
+  margin: 2rem 0;
 }

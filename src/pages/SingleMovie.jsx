@@ -41,7 +41,7 @@ export default function SingleMovie() {
             ) : (
                 <>
                     {/* Jumbotron*/}
-                    <div className="p-5 mb-4 bg-light rounded-3">
+                    <div className="p-5 mb-4 jumbo-movie rounded-3">
                         <div className="container-fluid py-5">
                             <div className="row">
                                 <div className="col-8">
