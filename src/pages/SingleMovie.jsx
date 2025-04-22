@@ -47,6 +47,7 @@ export default function SingleMovie() {
                                 <div className="col-8">
                                     <h1 className="display-5 fw-bold">{movie?.title}</h1>
                                     <p className="col-md-8 fs-4">{movie?.abstract}</p>
+                                    <p>{movie?.director}</p>
                                     <p>{movie?.genre}</p>
                                     <p>{movie?.release_year}</p>
                                 </div>
