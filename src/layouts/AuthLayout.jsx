@@ -6,7 +6,7 @@ export default function AuthLayout() {
     return (
         <>
             <header>
-                <nav className="navbar navbar-expand navbar-light bg-light">
+                <nav className="navbar navbar-expand custom-header mx-auto">
                     <div className="nav navbar-nav w-100">
                         <NavLink className="nav-item nav-link" to="/admin">Admin</NavLink>
 

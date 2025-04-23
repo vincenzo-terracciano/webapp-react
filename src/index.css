@@ -157,3 +157,17 @@ hr {
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+.buttons {
+  .btn-success {
+    background-color: green;
+  }
+
+  .btn-primary {
+    background-color: blue;
+  }
+
+  .btn-danger {
+    background-color: red;
+  }
+}

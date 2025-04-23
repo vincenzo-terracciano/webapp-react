@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function CreateMovie() {
 
+    const navigate = useNavigate()
     const initialFormData = {
         title: "",
         director: "",
@@ -13,11 +15,37 @@ export default function CreateMovie() {
 
     const [formData, setFormData] = useState(initialFormData)
 
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        const form = new FormData()
+        form.append('title', formData.title)
+        form.append('director', formData.director)
+        form.append('genre', formData.genre)
+        form.append('abstract', formData.abstract)
+        form.append('release_year', formData.release_year)
+        form.append('image', formData.image)
+
+        fetch('http://localhost:3000/api/v1/movies/create', {
+            method: 'POST',
+            body: form,
+            credentials: 'include'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data, 'Movie created successfully');
+                navigate('/admin');
+            })
+            .catch(err => {
+                console.error(err, 'Error creating movie');
+            })
+    }
+
     return (
         <div className="container py-4">
-            <h1 className="mb-4">Create New Movie</h1>
+            <h1 className="mb-4 text-center">Create New Movie</h1>
 
-            <form className="col-md-6">
+            <form encType="multipart/form-data" onSubmit={handleSubmit} className="col-md-6 mx-auto">
 
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title</label>
@@ -82,17 +110,16 @@ export default function CreateMovie() {
                 <div className="mb-3">
                     <label htmlFor="image" className="form-label">Image URL</label>
                     <input
-                        type="text"
+                        type="file"
                         className="form-control"
                         name="image"
                         id="image"
                         placeholder="https://example.com/image.jpg"
-                        value={formData.image}
-                        onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                        onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Create Movie</button>
+                <button type="submit" className="btn btn-primary mt-3   ">Create Movie</button>
 
             </form>
         </div>

@@ -13,6 +13,9 @@ export default function Admin() {
                 console.log(data);
                 setMovies(data)
             })
+            .catch(err => {
+                console.error(err);
+            })
     }, [])
 
     return (
@@ -22,12 +25,8 @@ export default function Admin() {
                 <Link className="btn btn-primary" to="/admin/movies/create">Add movie</Link>
             </div>
 
-            <div
-                class="table-responsive"
-            >
-                <table
-                    class="table table-primary"
-                >
+            <div className="table-responsive">
+                <table className="table table-primary">
                     <thead>
                         <tr>
                             <th scope="col">id</th>
@@ -44,18 +43,21 @@ export default function Admin() {
 
                         {
                             movies.map(movie => (
-                                <tr key={movie.id}>
+                                <tr key={movie.id} className="align-middle">
                                     <td scope="row">{movie.id}</td>
-                                    <td>{movie.image}</td>
+                                    <td><img src={movie.image} alt={movie.title} style={{ width: "150px" }} /></td>
                                     <td>{movie.title}</td>
                                     <td>{movie.director}</td>
                                     <td>{movie.genre}</td>
                                     <td>{movie.release_year}</td>
                                     <td>{movie.abstract}</td>
-                                    <td className="d-flex justify-content-center align-items-center gap-2">
-                                        <button className="btn btn-success">View</button>
-                                        <button className="btn btn-primary">Edit</button>
-                                        <button className="btn btn-danger">Delete</button>
+                                    <td>
+                                        <div className="buttons d-flex justify-content-center align-items-center gap-2">
+                                            <button className="btn btn-success">View</button>
+                                            <button className="btn btn-primary">Edit</button>
+                                            <button className="btn btn-danger">Delete</button>
+                                        </div>
+
                                     </td>
                                 </tr>
                             ))
